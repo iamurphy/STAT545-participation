@@ -1,3 +1,5 @@
+# This is the R code for participation in Lecture 002
+
 number / 6
 number <- 5
 number * 10
