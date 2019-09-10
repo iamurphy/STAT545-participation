@@ -1,6 +1,6 @@
 # Helpful Links
 
-URL for **Stat545 homepage** repo: https://github.com/STAT545-UBC/STAT545-home
+URL for **Stat545 homepage** repo is [here](https://github.com/STAT545-UBC/STAT545-home).
 
 The account it is under: https://github.com/STAT545-UBC
 
