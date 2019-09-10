@@ -1,0 +1,30 @@
+---
+title: "ioslides example"
+author: "Ian Murphy"
+date: '2019-09-10'
+output: ioslides_presentation
+---
+
+```{r library_execution, echo=FALSE, warning=FALSE}
+library(tibble)
+library(gapminder)
+library(DT)
+```
+
+## Print out gapminder data:
+
+```{r}
+gapminder
+```
+
+## Convert mtcars into a tibble and wrap in datatable:
+
+```{r}
+datatable(as_tibble(mtcars))
+```
+
+
+
+
+
+
