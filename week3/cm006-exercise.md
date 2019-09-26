@@ -384,56 +384,81 @@ gapminder %>%
 ## # … with 42 more rows
 ```
 
-3. Repeat 2, but take data from countries Brazil, and China. 
+3. Take data from countries Brazil and China. 
 
 
 ```r
 gapminder %>%
-  filter(pop > 100000000) %>%
   filter(country %in% c("Brazil", "China"))
 ```
 
 ```
-## # A tibble: 20 x 6
-##    country continent  year lifeExp        pop gdpPercap
-##    <fct>   <fct>     <int>   <dbl>      <int>     <dbl>
-##  1 Brazil  Americas   1972    59.5  100840058     4986.
-##  2 Brazil  Americas   1977    61.5  114313951     6660.
-##  3 Brazil  Americas   1982    63.3  128962939     7031.
-##  4 Brazil  Americas   1987    65.2  142938076     7807.
-##  5 Brazil  Americas   1992    67.1  155975974     6950.
-##  6 Brazil  Americas   1997    69.4  168546719     7958.
-##  7 Brazil  Americas   2002    71.0  179914212     8131.
-##  8 Brazil  Americas   2007    72.4  190010647     9066.
-##  9 China   Asia       1952    44    556263527      400.
-## 10 China   Asia       1957    50.5  637408000      576.
-## 11 China   Asia       1962    44.5  665770000      488.
-## 12 China   Asia       1967    58.4  754550000      613.
-## 13 China   Asia       1972    63.1  862030000      677.
-## 14 China   Asia       1977    64.0  943455000      741.
-## 15 China   Asia       1982    65.5 1000281000      962.
-## 16 China   Asia       1987    67.3 1084035000     1379.
-## 17 China   Asia       1992    68.7 1164970000     1656.
-## 18 China   Asia       1997    70.4 1230075000     2289.
-## 19 China   Asia       2002    72.0 1280400000     3119.
-## 20 China   Asia       2007    73.0 1318683096     4959.
+## # A tibble: 24 x 6
+##    country continent  year lifeExp       pop gdpPercap
+##    <fct>   <fct>     <int>   <dbl>     <int>     <dbl>
+##  1 Brazil  Americas   1952    50.9  56602560     2109.
+##  2 Brazil  Americas   1957    53.3  65551171     2487.
+##  3 Brazil  Americas   1962    55.7  76039390     3337.
+##  4 Brazil  Americas   1967    57.6  88049823     3430.
+##  5 Brazil  Americas   1972    59.5 100840058     4986.
+##  6 Brazil  Americas   1977    61.5 114313951     6660.
+##  7 Brazil  Americas   1982    63.3 128962939     7031.
+##  8 Brazil  Americas   1987    65.2 142938076     7807.
+##  9 Brazil  Americas   1992    67.1 155975974     6950.
+## 10 Brazil  Americas   1997    69.4 168546719     7958.
+## # … with 14 more rows
+```
+
+```r
+gapminder %>% 
+  filter(country == "Brazil" | country == "China")
+```
+
+```
+## # A tibble: 24 x 6
+##    country continent  year lifeExp       pop gdpPercap
+##    <fct>   <fct>     <int>   <dbl>     <int>     <dbl>
+##  1 Brazil  Americas   1952    50.9  56602560     2109.
+##  2 Brazil  Americas   1957    53.3  65551171     2487.
+##  3 Brazil  Americas   1962    55.7  76039390     3337.
+##  4 Brazil  Americas   1967    57.6  88049823     3430.
+##  5 Brazil  Americas   1972    59.5 100840058     4986.
+##  6 Brazil  Americas   1977    61.5 114313951     6660.
+##  7 Brazil  Americas   1982    63.3 128962939     7031.
+##  8 Brazil  Americas   1987    65.2 142938076     7807.
+##  9 Brazil  Americas   1992    67.1 155975974     6950.
+## 10 Brazil  Americas   1997    69.4 168546719     7958.
+## # … with 14 more rows
 ```
 
 ## `mutate()` (10 min)
 
 Let's get: 
 
-- GDP by multiplying GPD per capita with population, and
+- GDP by multiplying GDP per capita with population, and
 - GDP in billions, named (`gdpBill`), rounded to two decimals.
 
 
 ```r
 gapminder %>%
-  mutate(FILL_THIS_IN)
+  mutate(gdpBill = round(gdpPercap * pop / 10^9, 2))
 ```
 
 ```
-## Error: Evaluation error: object 'FILL_THIS_IN' not found.
+## # A tibble: 1,704 x 7
+##    country     continent  year lifeExp      pop gdpPercap gdpBill
+##    <fct>       <fct>     <int>   <dbl>    <int>     <dbl>   <dbl>
+##  1 Afghanistan Asia       1952    28.8  8425333      779.    6.57
+##  2 Afghanistan Asia       1957    30.3  9240934      821.    7.59
+##  3 Afghanistan Asia       1962    32.0 10267083      853.    8.76
+##  4 Afghanistan Asia       1967    34.0 11537966      836.    9.65
+##  5 Afghanistan Asia       1972    36.1 13079460      740.    9.68
+##  6 Afghanistan Asia       1977    38.4 14880372      786.   11.7 
+##  7 Afghanistan Asia       1982    39.9 12881816      978.   12.6 
+##  8 Afghanistan Asia       1987    40.8 13867957      852.   11.8 
+##  9 Afghanistan Asia       1992    41.7 16317921      649.   10.6 
+## 10 Afghanistan Asia       1997    41.8 22227415      635.   14.1 
+## # … with 1,694 more rows
 ```
 
 Notice the backwards compatibility! No need for loops!
@@ -443,11 +468,24 @@ Try the same thing, but with `transmute` (drops all other variables).
 
 ```r
 gapminder %>%
-  transmute(FILL_THIS_IN)
+  transmute(gdpBill = round(gdpPercap * pop / 10^9, 2))
 ```
 
 ```
-## Error: Evaluation error: object 'FILL_THIS_IN' not found.
+## # A tibble: 1,704 x 1
+##    gdpBill
+##      <dbl>
+##  1    6.57
+##  2    7.59
+##  3    8.76
+##  4    9.65
+##  5    9.68
+##  6   11.7 
+##  7   12.6 
+##  8   11.8 
+##  9   10.6 
+## 10   14.1 
+## # … with 1,694 more rows
 ```
 
 The `if_else` function is useful for changing certain elements in a data frame.
@@ -457,16 +495,50 @@ Example: Suppose Canada's 1952 life expectancy was mistakenly entered as 68.8 in
 
 ```r
 gapminder %>%
-  mutate(FILL_THIS_IN)
+  mutate(lifeExp = if_else(country=="Canada" & year == 1952, 70, lifeExp))
 ```
 
 ```
-## Error: Evaluation error: object 'FILL_THIS_IN' not found.
+## # A tibble: 1,704 x 6
+##    country     continent  year lifeExp      pop gdpPercap
+##    <fct>       <fct>     <int>   <dbl>    <int>     <dbl>
+##  1 Afghanistan Asia       1952    28.8  8425333      779.
+##  2 Afghanistan Asia       1957    30.3  9240934      821.
+##  3 Afghanistan Asia       1962    32.0 10267083      853.
+##  4 Afghanistan Asia       1967    34.0 11537966      836.
+##  5 Afghanistan Asia       1972    36.1 13079460      740.
+##  6 Afghanistan Asia       1977    38.4 14880372      786.
+##  7 Afghanistan Asia       1982    39.9 12881816      978.
+##  8 Afghanistan Asia       1987    40.8 13867957      852.
+##  9 Afghanistan Asia       1992    41.7 16317921      649.
+## 10 Afghanistan Asia       1997    41.8 22227415      635.
+## # … with 1,694 more rows
 ```
 
 Your turn: Make a new column called `cc` that pastes the country name followed by the continent, separated by a comma. (Hint: use the `paste` function with the `sep=", "` argument).
 
 
+```r
+gapminder %>% 
+  mutate(cc = paste(country, continent, sep=","))
+```
+
+```
+## # A tibble: 1,704 x 7
+##    country     continent  year lifeExp      pop gdpPercap cc              
+##    <fct>       <fct>     <int>   <dbl>    <int>     <dbl> <chr>           
+##  1 Afghanistan Asia       1952    28.8  8425333      779. Afghanistan,Asia
+##  2 Afghanistan Asia       1957    30.3  9240934      821. Afghanistan,Asia
+##  3 Afghanistan Asia       1962    32.0 10267083      853. Afghanistan,Asia
+##  4 Afghanistan Asia       1967    34.0 11537966      836. Afghanistan,Asia
+##  5 Afghanistan Asia       1972    36.1 13079460      740. Afghanistan,Asia
+##  6 Afghanistan Asia       1977    38.4 14880372      786. Afghanistan,Asia
+##  7 Afghanistan Asia       1982    39.9 12881816      978. Afghanistan,Asia
+##  8 Afghanistan Asia       1987    40.8 13867957      852. Afghanistan,Asia
+##  9 Afghanistan Asia       1992    41.7 16317921      649. Afghanistan,Asia
+## 10 Afghanistan Asia       1997    41.8 22227415      635. Afghanistan,Asia
+## # … with 1,694 more rows
+```
 
 These functions we've seen are called __vectorized functions__.
 
