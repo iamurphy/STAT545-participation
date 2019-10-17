@@ -13,15 +13,17 @@ https://iamurphy.github.io/STAT545-participation/
 1. https://github.com/iamurphy/STAT545-participation/blob/master/weeks1and2/navigating_github.md
 2. https://github.com/iamurphy/STAT545-participation/blob/master/weeks1and2/participation-lecture-2.R
 3. a. https://iamurphy.github.io/STAT545-participation/weeks1and2/Rmd_Exploration.html
-   b. https://github.com/iamurphy/STAT545-participation/blob/master/weeks1and2/slides_examples.html
+
+   b. https://iamurphy.github.io/STAT545-participation//weeks1and2/slides_examples.html
+   
 4. Nothing to submit
 5. Nothing to submit
 6. https://github.com/iamurphy/STAT545-participation/blob/master/week3/cm006-exercise.md
 7. https://github.com/iamurphy/STAT545-participation/blob/master/week4/cm007-exercise.md
 8. https://github.com/iamurphy/STAT545-participation/blob/master/week4/cm008-exercise.pdf
-9. https://github.com/iamurphy/STAT545-participation/blob/master/week5/cm009-exercise.html
-10. https://github.com/iamurphy/STAT545-participation/blob/master/week5/cm010-exercise.html
+9. https://iamurphy.github.io/STAT545-participation//week5/cm009-exercise.html
+10. https://iamurphy.github.io/STAT545-participation//week5/cm010-exercise.html
 11. https://github.com/iamurphy/STAT545-participation/blob/master/week6/mri.R
 12. https://github.com/iamurphy/STAT545-participation/blob/master/week6/cm012-exercise.pdf
-13. https://github.com/iamurphy/STAT545-participation/blob/master/week6/cm0013-exercise1.html
-14. https://github.com/iamurphy/STAT545-participation/blob/master/week6/cm-014.html
+13. https://iamurphy.github.io/STAT545-participation//week6/cm0013-exercise1.html
+14. https://iamurphy.github.io/STAT545-participation//week6/cm-014.html
