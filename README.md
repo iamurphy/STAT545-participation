@@ -7,8 +7,7 @@ They will be organized by "weeks" meaning you will find folders such as "weeks1a
 
 Within those folders, you can find all relevant files for those weeks. Most will be R Markdown.
 
-Here is a list of the links for each lecture for participation:
-https://iamurphy.github.io/STAT545-participation/
+Here is a list of the links for each lecture for participation. I hope I've included everything that needs to be included! Thanks for a great class!!!
 
 1. https://github.com/iamurphy/STAT545-participation/blob/master/weeks1and2/navigating_github.md
 2. https://github.com/iamurphy/STAT545-participation/blob/master/weeks1and2/participation-lecture-2.R
